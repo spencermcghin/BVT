@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestConfiguration>
+    <Deployment name="none" description="none">
+        <Server>
+            <!-- AnalyticsURL Needs to point to the analytics page -->
+            <!-- ex: <AnalyticsURL>http://servername:9704/analytics</AnalyticsURL> -->
+            <!-- ex: <AnalyticsURL>https://servername/analytics</AnalyticsURL> -->
+            <!-- If you are using a test certificate on the server for SSL and want to
+                 to bypass SSL certificate validation, set the IgnoreSSLCertErrors to true.
+                 This setting is strictly for Test environments only -->
+            <AnalyticsURL>""</AnalyticsURL>
+            <UserName>""</UserName>
+            <Password>""</Password>
+            <IgnoreSSLCertErrors>false</IgnoreSSLCertErrors>
+        </Server>
+    </Deployment>
+    <Deployment name="none" description="none">
+        <Server>
+            <!-- AnalyticsURL Needs to point to the analytics page -->
+            <!-- ex: <AnalyticsURL>http://servername:9704/analytics</AnalyticsURL> -->
+            <!-- ex: <AnalyticsURL>https://servername/analytics</AnalyticsURL> -->
+            <!-- If you are using a test certificate on the server for SSL and want to
+                 to bypass SSL certificate validation, set the IgnoreSSLCertErrors to true.
+                 This setting is strictly for Test environments only -->
+            <AnalyticsURL>""</AnalyticsURL>
+            <UserName>""</UserName>
+            <Password>""</Password>
+            <IgnoreSSLCertErrors>false</IgnoreSSLCertErrors>
+        </Server>
+    </Deployment>
+    <TestPlugin name="com.oracle.biee.bvt.plugin.report" enabled="true">
+            <!-- Timeout for loading each report in MSecs should be between 5 secs and 10 mins -->
+            <Parameter name="ReadTimeout" value="15000" />
+            <Test name="ExportReportsToCSV" enabled="true">
+                <Parameter name="CatalogRoot" value="none"/>
+                <!-- Set a limit on the maximum tolerance for fluctuations in floating point numbers in report data. Ex:"0" for no tolerance. "0.1, "0.001", etc.-->
+                <Parameter name="DiffTolerance" value="0"/>
+            </Test>
+    </TestPlugin>
+    <Results>
+        <LogPath timestampFolders="false">Results</LogPath>
+    </Results>
+</TestConfiguration>
