@@ -30,8 +30,8 @@ class DashboardForm(FlaskForm):
                                validators=[DataRequired("Please designate a name for the target test.")])
     secondary_env = StringField('Target Analytics URL (http://servername:9704/analytics)',
                                 validators=[DataRequired("Please designate a secondary analytics URL.")])
-    username_b = StringField('OBIEE User Name', validators=[DataRequired("Please enter your OBIEE user name.")])
-    password_b = PasswordField('OBIEE Password', validators=[(DataRequired("Please enter your OBIEE password."))])
+    username_b = StringField('Target OBIEE User Name', validators=[DataRequired("Please enter your OBIEE user name.")])
+    password_b = PasswordField('Target OBIEE Password', validators=[(DataRequired("Please enter your OBIEE password."))])
     dashboard_path = StringField('Dashboard Path (as in /shared/...)',
                                  validators=[DataRequired("Please designate a path to the target dashboard(s).")])
     submit = SubmitField('Run Test')
@@ -42,18 +42,20 @@ class CatalogForm(FlaskForm):
     Form to configure catalog test
     """
     test_name = StringField('Test Name (no_spaces)', validators=[DataRequired("Please enter a name for the test.")])
-    username = StringField('OBIEE User Name', validators=[DataRequired("Please enter your OBIEE user name.")])
-    password = PasswordField('OBIEE Password', validators=[(DataRequired("Please enter your OBIEE password."))])
     baseline_env = StringField('Baseline Analytics URL (http://servername:9704/analytics)',
                                validators=[DataRequired("Please designate a baseline analytics URL.")])
-    secondary_env = StringField('Target Analytics URL (http://servername:9704/analytics)',
-                                validators=[DataRequired("Please designate a secondary analytics URL.")])
     deployment_a = StringField('Baseline Deployment Name',
                                validators=[DataRequired("Please designate a name for the baseline test.")])
+    user_a = StringField('Baseline OBIEE User Name', validators=[DataRequired("Please enter your OBIEE user name.")])
+    pass_a = PasswordField('Baseline OBIEE Password', validators=[(DataRequired("Please enter your OBIEE password."))])
     deployment_b = StringField('Target Deployment Name',
                                validators=[DataRequired("Please designate a name for the target test.")])
+    secondary_env = StringField('Target Analytics URL (http://servername:9704/analytics)',
+                                validators=[DataRequired("Please designate a secondary analytics URL.")])
+    user_b = StringField('Target OBIEE User Name', validators=[DataRequired("Please enter your OBIEE user name.")])
+    pass_b = PasswordField('Target OBIEE Password', validators=[(DataRequired("Please enter your OBIEE password."))])
     catalog_path = StringField('Catalog Path (as in /shared/...)',
-                                 validators=[DataRequired("Please designate a path to the target catalog content.")])
+                               validators=[DataRequired("Please designate a path to the target catalog content.")])
     submit = SubmitField('Run Test')
 
 
@@ -120,16 +122,18 @@ class LSQLForm(FlaskForm):
     Form to configure logical SQL test
     """
     test_name = StringField('Test Name (no_spaces)', validators=[DataRequired("Please enter a name for the test.")])
-    username = StringField('OBIEE User Name', validators=[DataRequired("Please enter your OBIEE user name.")])
-    password = PasswordField('OBIEE Password', validators=[(DataRequired("Please enter your OBIEE password."))])
+    deployment_a = StringField('Baseline Deployment Name',
+                               validators=[DataRequired("Please designate a name for the baseline test.")])
     baseline_env = StringField('Baseline Analytics URL (http://servername:9704/analytics)',
                                validators=[DataRequired("Please designate a baseline analytics URL.")])
+    user_a = StringField('Baseline OBIEE User Name', validators=[DataRequired("Please enter your OBIEE user name.")])
+    pass_a = PasswordField('Baseline OBIEE Password', validators=[(DataRequired("Please enter your OBIEE password."))])
+    deployment_b = StringField('Target Deployment Name',
+                               validators=[DataRequired("Please designate a name for the target test.")])
     secondary_env = StringField('Target Analytics URL (http://servername:9704/analytics)',
                                 validators=[DataRequired("Please designate a secondary analytics URL.")])
-    deployment_a = StringField('Baseline Deployment',
-                               validators=[DataRequired("Please designate a name for the baseline test.")])
-    deployment_b = StringField('Target Deployment',
-                               validators=[DataRequired("Please designate a name for the target test.")])
+    user_b = StringField('Target OBIEE User Name', validators=[DataRequired("Please enter your OBIEE user name.")])
+    pass_b = PasswordField('Target OBIEE Password', validators=[(DataRequired("Please enter your OBIEE password."))])
     catalog_path = StringField('Catalog Path (as in /shared/...)',
                                validators=[DataRequired("Please designate a path to the target catalog content.")])
     submit = SubmitField('Run Test')
