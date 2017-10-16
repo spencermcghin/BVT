@@ -13,6 +13,15 @@ def homepage():
     Render the homepage template on the / route
     """
 
+    return render_template('home/index.html', title="Welcome")
+
+
+@home.route('/test_select', methods=['GET', 'POST'])
+def test_select():
+    """
+    Route to test select form
+    """
+
     form = TestSelectForm()
 
     if form.validate_on_submit():
@@ -29,7 +38,7 @@ def homepage():
         else:
             return redirect(url_for('home.lsqltest'))
 
-    return render_template('home/index.html', form=form, title="Welcome")
+    return render_template('home/choose_test.html', form=form, title="Select Test Type")
 
 
 @home.route('/dashboard_test', methods=['GET', 'POST'])
