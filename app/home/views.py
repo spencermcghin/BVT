@@ -22,8 +22,18 @@ def view_tests():
     Render the test view template
     """
 
+    tests = [file for file in os.listdir(BVT_PATH + '\\' + 'Comparisons')]
 
-    return render_template('home/view_tests.html', title="View Test Results")
+    return render_template('home/view_tests.html', tests=tests, title="View Test Results")
+
+
+@home.route('/view_test/<testname>', methods=['GET', 'POST'])
+def view_test(testname):
+    """
+    Route user to test results view from BVT
+    """
+
+    return send_from_directory(os.path.join(BVT_PATH, 'Comparisons', testname))
 
 
 @home.route('/test_select', methods=['GET', 'POST'])
@@ -122,7 +132,7 @@ def dashboardtest():
         dash_test = 'com.oracle.biee.bvt.plugin.dashboard'
 
         # Check to see if test results page exists and if so, render it in app.
-        # Return no results page if not, and link to home.
+        # fReturn no results page if not, and link to home.
         if os.path.isfile(os.path.join(BVT_PATH, 'Comparisons', comparison_test_name, dash_test, 'DashboardPlugin.html')):
             return send_from_directory(os.path.join(BVT_PATH, 'Comparisons',
                                                     comparison_test_name, dash_test, 'DashboardPlugin.html'))

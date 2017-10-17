@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>BVT Test Configuration</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for( 'static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for( 'static', filename='css/simple-sidebar.css') }}" rel="stylesheet">
+
+    {% import "bootstrap/wtf.html" as wtf %}
+    {% import "bootstrap/utils.html" as utils %}
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="{{ url_for('home.homepage') }}">
+                        BVT Portal
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('home.test_select') }}">New Test</a>
+                </li>
+                <li>
+                    <a href="#">View Tests</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+                <h1>View Tests</h1>
+                    <div class="col-md-12 column">
+    {% if tests %}
+    <div class="center">
+            <table id="tests" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th> Test Name </th>
+                  <th> Date </th>
+                  <th> </th>
+              </thead>
+              <tbody>
+              {% for test in tests %}
+                    <tr>
+                      <td> {{ test }} </td>
+                      <td> {{ }} </td>
+                      <td>
+                        <a href="{{ url_for('home.view_test'), testname=test }}" class="btn btn-link">
+                          <i class="fa fa-eye"></i> View
+                        </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div style="text-align: center">
+        {% else %}
+          <div style="text-align: center">
+            <h3 class="header_gradient"> No tests have been created. </h3>
+            <hr class="intro-divider">
+              <a href="{{ url_for('home.test_select') }}" class="btn btn-default btn-lg">
+                <i class="fa fa-plus"></i>
+            New Test
+          </a>
+        {% endif %}
+        </div>
+          </div>
+    </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+
+<!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for( 'static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for( 'static', filename='vendor/popper/popper.min.js') }}"></script>
+    <script src="{{ url_for( 'static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

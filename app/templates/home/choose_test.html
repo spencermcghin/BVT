@@ -36,7 +36,7 @@
                     <a href="{{ url_for('home.test_select') }}">New Test</a>
                 </li>
                 <li>
-                    <a href="#">View Tests</a>
+                    <a href="{{ url_for('home.view_tests') }}">View Tests</a>
                 </li>
             </ul>
         </div>
@@ -50,6 +50,125 @@
                 <p>Select Test Type.</p>
                     <div class="col-md-12 column">
                         {{ wtf.quick_form(form) }}
+                    </div>
+                    <p style="padding-top:10px; padding-left: 15px">Expand for Test Descriptions.</p>
+                    <div class="col-md-12 column" style="padding-top: 10px">
+                        <div id="accordion" role="tablist">
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <h5 class="mb-0">
+                                    <a data-toggle="collapse" href="#collapseOne" aria-expanded="True" aria-controls="collapseOne">
+                                    Dashboard
+                                    </a>
+                                    </h5>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                            Exports the results of the analyses to XML and generates a comparison
+                                            report. Detailed investigation of differences can be carried out by importing
+                                            the XML files into Microsoft Excel.
+                                            Use this plug-in to perform more in-depth comparisons than that offered by
+                                            the UI Plug-in. For dashboards requiring prompted values to display content,
+                                            you can use the same prompt values input file that you supply for the
+                                            UI Plug-in.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingTwo">
+                                <h5 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Catalog Objects
+                                </a>
+                                </h5>
+                                </div>
+
+                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body">
+                                        Compares the metadata of objects in catalog folders, rather than the actual
+                                        folder objects themselves.
+                                        Use this plug-in against the entire catalog or against a specific catalog folder.
+                                        Choosing a specific catalog folder is useful if you have a set of standard corporate
+                                        analyses that make up your baseline.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingThree">
+                                  <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                      User Interface
+                                    </a>
+                                  </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                  <div class="card-body">
+                                        Compares screen captures of individual analyses and dashboards.
+                                        Use this plug-in to view comparison report showing you side-by-side results,
+                                        with links to each dashboard and analysis so you can further examine differences.
+                                        To run the plug-in you must use either Mozilla Firefox or Internet
+                                        Explorer.
+                                        The UI plug-in offers three tests:<br>
+                                        ■ Finds Adobe Flash components that are not rendered<br>
+                                        ■ Finds visual differences in analyses between catalogs<br>
+                                        ■ Finds visual differences in dashboards between catalogs<br>
+                                        Differences are scored between 0 and 1, where a value of '1' indicates a 100%
+                                        pixel-by-pixel match, and a value of '0' indicates a complete mismatch.
+                                        To obtain a score, you first define a threshold from which the score is determined
+                                        to be a pass or a fail. A threshold of 1 indicates a perfect match. The
+                                        threshold is set to .95 by default.
+                                        For example, suppose an analysis in your baseline catalog has changed
+                                        enough in your updated catalog that it scores below .95. The changed analysis
+                                        is rendered when you view the side-by-side comparison, which lets you
+                                        know at a glance that there are changes that you might want to further examine.
+                                        You can perform multiple test runs with different threshold values to
+                                        find a threshold that work best for you.
+                                        For dashboards requiring prompted values to display content, you can copy
+                                        prompt values into a file and pass the name and location of that file to the
+                                        tool when you run it. The tool will use the supplied values to detect differences
+                                        between your baseline catalog and your updated catalog.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        <div class="card">
+                                <div class="card-header" role="tab" id="headingFour">
+                                  <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                      Report
+                                    </a>
+                                  </h5>
+                                </div>
+                                <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
+                                  <div class="card-body">
+                                        Exports the results of the analyses to CSV and generates a comparison report.
+                                        Detailed investigation of differences can be carried out by importing the CSV
+                                        files into Microsoft Excel.
+                                        Use this plug-in to work with analyses created with Oracle BI Answers, with
+                                        Oracle BI Composer, but not with Oracle BI Publisher.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="card">
+                                <div class="card-header" role="tab" id="headingFive">
+                                  <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                      Logical SQL
+                                    </a>
+                                  </h5>
+                                </div>
+                                <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion">
+                                  <div class="card-body">
+                                        Downloads and saves the logical SQL generated for analyses as it appears on
+                                        the Advanced tab in Oracle BI Answers.
+                                        Use this plug-in to determine whether the logical SQL has changed. If the
+                                        logical SQL has changed, then the Oracle BI Server might issue different
+                                        physical query to query underlying data sources.
+                                </div>
+                              </div>
+                        </div>
                     </div>
             </div>
         </div>
