@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect, Response
+from flask import render_template, url_for, redirect, Response, send_from_directory
 import os
 import xml.etree.ElementTree as ET
 
@@ -14,6 +14,16 @@ def homepage():
     """
 
     return render_template('home/index.html', title="Welcome")
+
+
+@home.route('/view_tests', methods=['GET', 'POST'])
+def view_tests():
+    """
+    Render the test view template
+    """
+
+
+    return render_template('home/view_tests.html', title="View Test Results")
 
 
 @home.route('/test_select', methods=['GET', 'POST'])
@@ -106,7 +116,18 @@ def dashboardtest():
         os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy, '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
-        return Response(str(parameter[0].attrib), mimetype="text/plain")
+        ### Comparison report run section###
+        # Comparison test name variable and dashboard test variable
+        comparison_test_name = form.deployment_a.data + '_' + form.deployment_b.data
+        dash_test = 'com.oracle.biee.bvt.plugin.dashboard'
+
+        # Check to see if test results page exists and if so, render it in app.
+        # Return no results page if not, and link to home.
+        if os.path.isfile(os.path.join(BVT_PATH, 'Comparisons', comparison_test_name, dash_test, 'DashboardPlugin.html')):
+            return send_from_directory(os.path.join(BVT_PATH, 'Comparisons',
+                                                    comparison_test_name, dash_test, 'DashboardPlugin.html'))
+        else:
+            return render_template('#')
 
     return render_template('home/test_config.html', dashboard_form=form, dashboard_test=dashboard_test, title="Dashboard")
 
@@ -169,9 +190,9 @@ def catalogtest():
         # Run shell commands in background to execute test
         os.chdir(BVT_PATH)  # Change path to BVT home
         os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
-                                                                            form.deployment_a.data))  # Run first deployment
+                                                                    form.deployment_a.data))  # Run first deployment
         os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
-                                                                            form.deployment_b.data))  # Run second deployment
+                                                                    form.deployment_b.data))  # Run second deployment
         os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy,
                                                                                    '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                                    '.\\' + 'Results' + '\\' + form.deployment_b.data))
