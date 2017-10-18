@@ -41,6 +41,8 @@ def view_test(testname):
         for file in glob.glob(os.path.join(test_path, folder, '*.html')):
             webbrowser.open('file://' + os.path.realpath(file))
 
+    return redirect(url_for('home.view_tests'))
+
 
 @home.route('/test_select', methods=['GET', 'POST'])
 def test_select():
