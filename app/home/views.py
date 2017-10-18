@@ -1,6 +1,8 @@
-from flask import render_template, url_for, redirect, Response, send_from_directory
+from flask import render_template, url_for, redirect, Response, send_from_directory, Flask
 import os
 import xml.etree.ElementTree as ET
+import glob
+import webbrowser
 
 from . import home
 from .forms import TestSelectForm, DashboardForm, CatalogForm, ReportForm, LSQLForm, UIForm
@@ -32,8 +34,12 @@ def view_test(testname):
     """
     Route user to test results view from BVT
     """
+    test_path = BVT_PATH + 'Comparisons' + '\\' + testname
 
-    return send_from_directory(os.path.join(BVT_PATH, 'Comparisons', testname))
+    # Iterate through the different test folders in the testname directory and display html results
+    for folder in os.listdir(test_path):
+        for file in glob.glob(os.path.join(test_path, folder, '*.html')):
+            webbrowser.open('file://' + os.path.realpath(file))
 
 
 @home.route('/test_select', methods=['GET', 'POST'])

@@ -36,7 +36,7 @@
                     <a href="{{ url_for('home.test_select') }}">New Test</a>
                 </li>
                 <li>
-                    <a href="#">View Tests</a>
+                    <a href="{{ url_for('home.view_tests') }}">View Tests</a>
                 </li>
             </ul>
         </div>
@@ -53,16 +53,14 @@
               <thead>
                 <tr>
                   <th> Test Name </th>
-                  <th> Date </th>
-                  <th> </th>
+                  <th> View All Test Results </th>
               </thead>
               <tbody>
               {% for test in tests %}
                     <tr>
                       <td> {{ test }} </td>
-                      <td> {{ }} </td>
                       <td>
-                        <a href="{{ url_for('home.view_test'), testname=test }}" class="btn btn-link">
+                        <a href="{{ url_for('home.view_test', testname=test) }}" class="btn btn-link">
                           <i class="fa fa-eye"></i> View
                         </a>
                       </td>

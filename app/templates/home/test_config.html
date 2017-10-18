@@ -36,7 +36,7 @@
                     <a href="{{ url_for('home.test_select') }}">New Test</a>
                 </li>
                 <li>
-                    <a href="#">View Tests</a>
+                    <a href="{{ url_for('home.view_tests') }}">View Tests</a>
                 </li>
             </ul>
         </div>
@@ -46,7 +46,7 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
-                <h1>{{ title }} Test Configuration</h1>
+                <h1 style="padding-top: 20px">{{ title }} Test Configuration</h1>
                 <p>Enter values for all fields below.</p>
                     <div class="col-md-12 column">
                         {% if dashboard_test %}
