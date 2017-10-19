@@ -28,7 +28,8 @@
             <IgnoreSSLCertErrors>false</IgnoreSSLCertErrors>
         </Server>
     </Deployment>
-    <TestPlugin name="com.oracle.biee.bvt.plugin.dashboard" enabled="true">
+    <Tests>
+        <TestPlugin name="com.oracle.biee.bvt.plugin.dashboard" enabled="true">
             <Test name="ExportDashboardsToXML" enabled="true">
                 <Parameter name="CatalogRoot" value="/"/>
                 <!-- Paste the prompted links to the following file-->
@@ -37,7 +38,8 @@
                 <!-- Set a limit on the maximum tolerance for fluctuations in floating point numbers in report data. Ex:"0" for no tolerance. "0.1, "0.001", etc.-->
                 <Parameter name="DiffTolerance" value="0"/>
             </Test>
-    </TestPlugin>
+        </TestPlugin>
+    </Tests>
     <Results>
         <LogPath timestampFolders="false">Results</LogPath>
     </Results>

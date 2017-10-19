@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect, Response, send_from_directory, Flask
+from flask import render_template, url_for, redirect, send_from_directory
 import os
 import xml.etree.ElementTree as ET
 import glob
@@ -103,10 +103,11 @@ def dashboardtest():
         deployments[1].set('name', form.deployment_b.data)  # Deployment name for target environment
 
         # Get catalog path element and append with form data
-        test_plugin = root.findall('TestPlugin')
+        tests = root.findall('Tests')
+        test_plugin = tests[0].findall('TestPlugin')  # Get Testplugin child element
         test = test_plugin[0].findall('Test')
         parameter = test[0].findall('Parameter')
-        parameter[0].set('value', form.dashboard_path.data)  # Catalog path to tested dashboard(s)
+        parameter[0].set('value', form.dashboard_path.data)  # Catalog path to tested report(s)
 
         # Get Server child elements and append with form data
         server_a_elem = deployments[0].findall('Server')
@@ -127,25 +128,28 @@ def dashboardtest():
         # Write copy of new xml to previously saved copy
         tree.write(xml_copy)
 
+        config_file_location = xml_copy.split('\\')
+        config_file_location = config_file_location[2] + '\\' + config_file_location[3]
+
         # Run shell commands in background to execute test
-        os.chdir(os.path.join(BVT_PATH))  # Change path to BVT home
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy, form.deployment_a.data))  # Run first deployment
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy, form.deployment_b.data))  # Run second deployment
-        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy, '.\\' + 'Results' + '\\' + form.deployment_a.data,
-                                                                           '.\\' + 'Results' + '\\' + form.deployment_b.data))
+        os.chdir(BVT_PATH)  # Change path to BVT home
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location, form.deployment_a.data))  # Run first deployment
+        # os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy, form.deployment_b.data))  # Run second deployment
+        # os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy, '.\\' + 'Results' + '\\' + form.deployment_a.data,
+        #                                                                    '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
-        ### Comparison report run section###
-        # Comparison test name variable and dashboard test variable
-        comparison_test_name = form.deployment_a.data + '_' + form.deployment_b.data
-        dash_test = 'com.oracle.biee.bvt.plugin.dashboard'
-
-        # Check to see if test results page exists and if so, render it in app.
-        # fReturn no results page if not, and link to home.
-        if os.path.isfile(os.path.join(BVT_PATH, 'Comparisons', comparison_test_name, dash_test, 'DashboardPlugin.html')):
-            return send_from_directory(os.path.join(BVT_PATH, 'Comparisons',
-                                                    comparison_test_name, dash_test, 'DashboardPlugin.html'))
-        else:
-            return render_template('#')
+        # ### Comparison report run section###
+        # # Comparison test name variable and dashboard test variable
+        # comparison_test_name = form.deployment_a.data + '_' + form.deployment_b.data
+        # dash_test = 'com.oracle.biee.bvt.plugin.dashboard'
+        #
+        # # Check to see if test results page exists and if so, render it in app.
+        # # fReturn no results page if not, and link to home.
+        # if os.path.isfile(os.path.join(BVT_PATH, 'Comparisons', comparison_test_name, dash_test, 'DashboardPlugin.html')):
+        #     return send_from_directory(os.path.join(BVT_PATH, 'Comparisons',
+        #                                             comparison_test_name, dash_test, 'DashboardPlugin.html'))
+        # else:
+        #     return render_template('#')
 
     return render_template('home/test_config.html', dashboard_form=form, dashboard_test=dashboard_test, title="Dashboard")
 
