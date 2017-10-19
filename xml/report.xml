@@ -28,7 +28,8 @@
             <IgnoreSSLCertErrors>false</IgnoreSSLCertErrors>
         </Server>
     </Deployment>
-    <TestPlugin name="com.oracle.biee.bvt.plugin.report" enabled="true">
+    <Tests>
+        <TestPlugin name="com.oracle.biee.bvt.plugin.report" enabled="true">
             <!-- Timeout for loading each report in MSecs should be between 5 secs and 10 mins -->
             <Parameter name="ReadTimeout" value="15000" />
             <Test name="ExportReportsToCSV" enabled="true">
@@ -36,7 +37,8 @@
                 <!-- Set a limit on the maximum tolerance for fluctuations in floating point numbers in report data. Ex:"0" for no tolerance. "0.1, "0.001", etc.-->
                 <Parameter name="DiffTolerance" value="0"/>
             </Test>
-    </TestPlugin>
+        </TestPlugin>
+    </Tests>
     <Results>
         <LogPath timestampFolders="false">Results</LogPath>
     </Results>

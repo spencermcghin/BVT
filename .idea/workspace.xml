@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c626c204-5374-4a13-8d50-148b13f057de" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/home/views.py" afterPath="$PROJECT_DIR$/app/home/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env.py" afterPath="$PROJECT_DIR$/env.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/catalog.xml" afterPath="$PROJECT_DIR$/xml/catalog.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/dashboard.xml" afterPath="$PROJECT_DIR$/xml/dashboard.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/lsql.xml" afterPath="$PROJECT_DIR$/xml/lsql.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/report.xml" afterPath="$PROJECT_DIR$/xml/report.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +20,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/home/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="109" column="95" lean-forward="true" selection-start-line="109" selection-start-column="95" selection-end-line="109" selection-end-column="95" />
+            <state relative-caret-position="244">
+              <caret line="411" column="34" lean-forward="false" selection-start-line="411" selection-start-column="34" selection-end-line="411" selection-end-column="34" />
               <folding>
                 <element signature="e#0#73#0" expanded="true" />
               </folding>
@@ -27,31 +29,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xml/dashboard.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/home/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2185">
+            <state relative-caret-position="553">
               <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="catalog.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xml/catalog.xml">
+      <file leaf-file-name="report.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xml/report.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+            <state relative-caret-position="292">
+              <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -80,10 +72,7 @@
         <option value="$PROJECT_DIR$/app/templates/base.html" />
         <option value="$PROJECT_DIR$/app/static/css/demo.css" />
         <option value="$PROJECT_DIR$/run.py" />
-        <option value="$PROJECT_DIR$/xml/report.xml" />
         <option value="$PROJECT_DIR$/xml/ui.xml" />
-        <option value="$PROJECT_DIR$/xml/lsql.xml" />
-        <option value="$PROJECT_DIR$/xml/catalog.xml" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/app/home/forms.py" />
         <option value="$PROJECT_DIR$/app/static/css/components.css" />
@@ -95,6 +84,9 @@
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/env.py" />
         <option value="$PROJECT_DIR$/xml/dashboard.xml" />
+        <option value="$PROJECT_DIR$/xml/catalog.xml" />
+        <option value="$PROJECT_DIR$/xml/lsql.xml" />
+        <option value="$PROJECT_DIR$/xml/report.xml" />
         <option value="$PROJECT_DIR$/app/home/views.py" />
       </list>
     </option>
@@ -493,14 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xml/lsql.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/static/css/components.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -614,10 +598,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xml/report.xml">
+    <entry file="file://$PROJECT_DIR$/xml/dashboard.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="57" lean-forward="false" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+        <state relative-caret-position="513">
+          <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -625,22 +609,30 @@
     <entry file="file://$PROJECT_DIR$/xml/catalog.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
-          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xml/dashboard.xml">
+    <entry file="file://$PROJECT_DIR$/xml/lsql.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        <state relative-caret-position="502">
+          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xml/report.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/home/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2185">
+        <state relative-caret-position="553">
           <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
           <folding />
         </state>
@@ -648,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/home/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="109" column="95" lean-forward="true" selection-start-line="109" selection-start-column="95" selection-end-line="109" selection-end-column="95" />
+        <state relative-caret-position="244">
+          <caret line="411" column="34" lean-forward="false" selection-start-line="411" selection-start-column="34" selection-end-line="411" selection-end-column="34" />
           <folding>
             <element signature="e#0#73#0" expanded="true" />
           </folding>

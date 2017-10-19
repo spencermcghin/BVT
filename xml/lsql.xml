@@ -25,14 +25,16 @@
             <AnalyticsURL>""</AnalyticsURL>
             <UserName>""</UserName>
             <Password>""</Password>
-            <IgnoreSSLCertErrors>false</IgnoreSSLCertErrors>
+            <IgnoreSSLCertErrors>true</IgnoreSSLCertErrors>
         </Server>
     </Deployment>
-    <TestPlugin name="com.oracle.biee.bvt.plugin.logicalquery" enabled="true">
+    <Tests>
+        <TestPlugin name="com.oracle.biee.bvt.plugin.logicalquery" enabled="true">
             <Test name="GetLogicalQueries" enabled="true">
                 <Parameter name="CatalogRoot" value="/"/>
             </Test>
-    </TestPlugin>
+        </TestPlugin>
+    </Tests>
     <Results>
         <LogPath timestampFolders="false">Results</LogPath>
     </Results>

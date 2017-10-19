@@ -134,9 +134,9 @@ def dashboardtest():
         # Run shell commands in background to execute test
         os.chdir(BVT_PATH)  # Change path to BVT home
         os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location, form.deployment_a.data))  # Run first deployment
-        # os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy, form.deployment_b.data))  # Run second deployment
-        # os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy, '.\\' + 'Results' + '\\' + form.deployment_a.data,
-        #                                                                    '.\\' + 'Results' + '\\' + form.deployment_b.data))
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy, form.deployment_b.data))  # Run second deployment
+        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy, '.\\' + 'Results' + '\\' + form.deployment_a.data,
+                                                                           '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
         # ### Comparison report run section###
         # # Comparison test name variable and dashboard test variable
@@ -326,7 +326,8 @@ def reporttest():
         deployments[1].set('name', form.deployment_b.data)  # Deployment name for target environment
 
         # Get catalog path element and append with form data
-        test_plugin = root.findall('TestPlugin')
+        tests = root.findall('Tests')
+        test_plugin = tests[0].findall('TestPlugin')  # Get Testplugin child element
         test = test_plugin[0].findall('Test')
         parameter = test[0].findall('Parameter')
         parameter[0].set('value', form.catalog_path.data)  # Catalog path to tested report(s)
@@ -406,16 +407,16 @@ def lsqltest():
         # Get Server child elements and append with form data
         server_a_elem = deployments[0].findall('Server')
         user_a = server_a_elem[0].findall('UserName')  # Username for baseline environment
-        user_a[0].text = form.username_a.data
+        user_a[0].text = form.user_a.data
         pass_a = server_a_elem[0].findall('Password')  # Password for baseline environment
-        pass_a[0].text = form.password_a.data
+        pass_a[0].text = form.pass_a.data
         url_a = server_a_elem[0].findall('AnalyticsURL')  # URL for baseline environment
         url_a[0].text = form.baseline_env.data
         server_b_elem = deployments[1].findall('Server')
         user_b = server_b_elem[0].findall('UserName')  # Username for target environment
-        user_b[0].text = form.username_b.data
+        user_b[0].text = form.user_b.data
         pass_b = server_b_elem[0].findall('Password')  # Password for target environment
-        pass_b[0].text = form.password_b.data
+        pass_b[0].text = form.pass_b.data
         url_b = server_b_elem[0].findall('AnalyticsURL')  # URL for target environment
         url_b[0].text = form.secondary_env.data
 
