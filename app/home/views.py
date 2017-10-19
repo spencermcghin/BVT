@@ -134,8 +134,8 @@ def dashboardtest():
         # Run shell commands in background to execute test
         os.chdir(BVT_PATH)  # Change path to BVT home
         os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location, form.deployment_a.data))  # Run first deployment
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy, form.deployment_b.data))  # Run second deployment
-        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy, '.\\' + 'Results' + '\\' + form.deployment_a.data,
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location, form.deployment_b.data))  # Run second deployment
+        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(config_file_location, '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
         # ### Comparison report run section###
@@ -209,15 +209,18 @@ def catalogtest():
         # Write copy of new xml to previously saved copy
         tree.write(xml_copy)
 
+        config_file_location = xml_copy.split('\\')
+        config_file_location = config_file_location[2] + '\\' + config_file_location[3]
+
         # Run shell commands in background to execute test
         os.chdir(BVT_PATH)  # Change path to BVT home
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location,
                                                                     form.deployment_a.data))  # Run first deployment
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location,
                                                                     form.deployment_b.data))  # Run second deployment
-        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy,
-                                                                                   '.\\' + 'Results' + '\\' + form.deployment_a.data,
-                                                                                   '.\\' + 'Results' + '\\' + form.deployment_b.data))
+        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(config_file_location,
+                                                                           '\\' + 'Results' + '\\' + form.deployment_a.data,
+                                                                           '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
     return render_template('home/test_config.html', catalog_form=form, catalog_test=catalog_test, title="Catalog")
 
@@ -282,13 +285,16 @@ def uitest():
         # Write copy of new xml to previously saved copy
         tree.write(xml_copy)
 
+        config_file_location = xml_copy.split('\\')
+        config_file_location = config_file_location[2] + '\\' + config_file_location[3]
+
         # Run shell commands in background to execute test
         os.chdir(BVT_PATH)  # Change path to BVT home
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location,
                                                                     form.deployment_a.data))  # Run first deployment
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location,
                                                                     form.deployment_b.data))  # Run second deployment
-        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(config_file_location,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
@@ -355,13 +361,16 @@ def reporttest():
         # Write copy of new xml to previously saved copy
         tree.write(xml_copy)
 
+        config_file_location = xml_copy.split('\\')
+        config_file_location = config_file_location[2] + '\\' + config_file_location[3]
+
         # Run shell commands in background to execute test
         os.chdir(BVT_PATH)  # Change path to BVT home
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location,
                                                                     form.deployment_a.data))  # Run first deployment
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location,
                                                                     form.deployment_b.data))  # Run second deployment
-        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(config_file_location,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
@@ -423,13 +432,16 @@ def lsqltest():
         # Write copy of new xml to previously saved copy
         tree.write(xml_copy)
 
+        config_file_location = xml_copy.split('\\')
+        config_file_location = config_file_location[2] + '\\' + config_file_location[3]
+
         # Run shell commands in background to execute test
         os.chdir(BVT_PATH)  # Change path to BVT home
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location,
                                                                     form.deployment_a.data))  # Run first deployment
-        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -deployment {}'.format(config_file_location,
                                                                     form.deployment_b.data))  # Run second deployment
-        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(xml_copy,
+        os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(config_file_location,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
