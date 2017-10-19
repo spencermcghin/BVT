@@ -138,18 +138,18 @@ def dashboardtest():
         os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(config_file_location, '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
-        # ### Comparison report run section###
-        # # Comparison test name variable and dashboard test variable
-        # comparison_test_name = form.deployment_a.data + '_' + form.deployment_b.data
-        # dash_test = 'com.oracle.biee.bvt.plugin.dashboard'
+        # Comparison report run section #
+        testname = form.deployment_a.data + '_' + form.deployment_b.data
+        return str(testname)
+        # test_path = BVT_PATH + 'Comparisons' + '\\' + testname
         #
-        # # Check to see if test results page exists and if so, render it in app.
-        # # fReturn no results page if not, and link to home.
-        # if os.path.isfile(os.path.join(BVT_PATH, 'Comparisons', comparison_test_name, dash_test, 'DashboardPlugin.html')):
-        #     return send_from_directory(os.path.join(BVT_PATH, 'Comparisons',
-        #                                             comparison_test_name, dash_test, 'DashboardPlugin.html'))
-        # else:
-        #     return render_template('#')
+        # # Iterate through the different test folders in the testname directory and display test html results
+        # try:
+        #     for folder in os.listdir(test_path):
+        #         for file in glob.glob(os.path.join(test_path, folder, '*.html')):
+        #             webbrowser.open('file://' + os.path.realpath(file))
+        # except FileExistsError as e:
+        #     print(e)
 
     return render_template('home/test_config.html', dashboard_form=form, dashboard_test=dashboard_test, title="Dashboard")
 
@@ -254,7 +254,8 @@ def uitest():
         deployments[1].set('name', form.deployment_b.data)  # Deployment name for target environment
 
         # Get catalog path element and append with form data
-        test_plugin = root.findall('TestPlugin')  # Get TestPlugin root child element
+        tests = root.findall('Tests')
+        test_plugin = tests[0].findall('TestPlugin')  # Get TestPlugin child element
         test = test_plugin[0].findall('Test')  # Get Test child element
         test[0].set('enabled', form.not_rendered_flag.data)  # Set Not Rendered Components flag
         test[1].set('enabled', form.report_snapshot_diff_flag.data)  # Set Report Snapshot Differences flag
