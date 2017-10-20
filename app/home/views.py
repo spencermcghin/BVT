@@ -140,16 +140,15 @@ def dashboardtest():
 
         # Comparison report run section #
         testname = form.deployment_a.data + '_' + form.deployment_b.data
-        return str(testname)
-        # test_path = BVT_PATH + 'Comparisons' + '\\' + testname
-        #
-        # # Iterate through the different test folders in the testname directory and display test html results
-        # try:
-        #     for folder in os.listdir(test_path):
-        #         for file in glob.glob(os.path.join(test_path, folder, '*.html')):
-        #             webbrowser.open('file://' + os.path.realpath(file))
-        # except FileExistsError as e:
-        #     print(e)
+        test_path = BVT_PATH + 'Comparisons' + '\\' + testname  # path to test in Comparisons directory
+
+        # Iterate through the different test folders in the testname directory and display test html results
+        try:
+            for folder in os.listdir(test_path):
+                for file in glob.glob(os.path.join(test_path, folder, '*.html')):
+                    webbrowser.open('file://' + os.path.realpath(file))
+        except FileExistsError as e:
+            print(e)
 
     return render_template('home/test_config.html', dashboard_form=form, dashboard_test=dashboard_test, title="Dashboard")
 
@@ -193,16 +192,16 @@ def catalogtest():
         # Get Server child elements and append with form data
         server_a_elem = deployments[0].findall('Server')
         user_a = server_a_elem[0].findall('UserName')  # Username for baseline environment
-        user_a[0].text = form.username_a.data
+        user_a[0].text = form.user_a.data
         pass_a = server_a_elem[0].findall('Password')  # Password for baseline environment
-        pass_a[0].text = form.password_a.data
+        pass_a[0].text = form.pass_a.data
         url_a = server_a_elem[0].findall('AnalyticsURL')  # URL for baseline environment
         url_a[0].text = form.baseline_env.data
         server_b_elem = deployments[1].findall('Server')
         user_b = server_b_elem[0].findall('UserName')  # Username for target environment
-        user_b[0].text = form.username_b.data
+        user_b[0].text = form.user_b.data
         pass_b = server_b_elem[0].findall('Password')  # Password for target environment
-        pass_b[0].text = form.password_b.data
+        pass_b[0].text = form.pass_b.data
         url_b = server_b_elem[0].findall('AnalyticsURL')  # URL for target environment
         url_b[0].text = form.secondary_env.data
 
