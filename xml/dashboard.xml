@@ -11,7 +11,7 @@
             <AnalyticsURL>""</AnalyticsURL>
             <UserName>""</UserName>
             <Password>""</Password>
-            <IgnoreSSLCertErrors>true</IgnoreSSLCertErrors>
+            <IgnoreSSLCertErrors>false</IgnoreSSLCertErrors>
         </Server>
     </Deployment>
     <Deployment name="none" description="none">
@@ -25,7 +25,7 @@
             <AnalyticsURL>""</AnalyticsURL>
             <UserName>""</UserName>
             <Password>""</Password>
-            <IgnoreSSLCertErrors>true</IgnoreSSLCertErrors>
+            <IgnoreSSLCertErrors>false</IgnoreSSLCertErrors>
         </Server>
     </Deployment>
     <Tests>

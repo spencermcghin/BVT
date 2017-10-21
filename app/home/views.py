@@ -24,7 +24,7 @@ def view_tests():
     Render the test view template
     """
 
-    tests = [file for file in os.listdir(BVT_PATH + '\\' + 'Comparisons')]
+    tests = [file for file in os.listdir(BVT_PATH + '\\' + 'Comparisons ')]
 
     return render_template('home/view_tests.html', tests=tests, title="View Test Results")
 
@@ -34,7 +34,7 @@ def view_test(testname):
     """
     Route user to test results view from BVT
     """
-    test_path = BVT_PATH + 'Comparisons' + '\\' + testname
+    test_path = BVT_PATH + '\\' + 'Comparisons' + '\\' + testname
 
     # Iterate through the different test folders in the testname directory and display html results
     for folder in os.listdir(test_path):
