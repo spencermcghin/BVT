@@ -5,6 +5,7 @@ class Config(object):
 
     # Put any configurations here that are common across all environments
 
+
 class DevelopmentConfig(Config):
     """
     Development configurations
@@ -12,6 +13,7 @@ class DevelopmentConfig(Config):
 
     DEBUG = True
     SQLALCHEMY_ECHO = True
+
 
 class ProductionConfig(Config):
     """

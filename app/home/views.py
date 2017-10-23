@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect, send_from_directory
+from flask import render_template, url_for, redirect
 import os
 import xml.etree.ElementTree as ET
 import glob
@@ -21,10 +21,9 @@ def homepage():
 @home.route('/view_tests', methods=['GET', 'POST'])
 def view_tests():
     """
-    Render the test view template
+    Render the tests view template with any files in the auto generated Comparisons directory
     """
-
-    tests = [file for file in os.listdir(BVT_PATH + '\\' + 'Comparisons ')]
+    tests = [file for file in os.listdir(BVT_PATH + '\\' + 'Comparisons')]
 
     return render_template('home/view_tests.html', tests=tests, title="View Test Results")
 
