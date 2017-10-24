@@ -137,17 +137,7 @@ def dashboardtest():
         os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(config_file_location, '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
-        # Comparison report run section #
-        testname = form.deployment_a.data + '_' + form.deployment_b.data
-        test_path = BVT_PATH + 'Comparisons' + '\\' + testname  # path to test in Comparisons directory
-
-        # Iterate through the different test folders in the testname directory and display test html results
-        # try:
-        #     for folder in os.listdir(test_path):
-        #         for file in glob.glob(os.path.join(test_path, folder, '*.html')):
-        #             webbrowser.open('file://' + os.path.realpath(file))
-        # except FileExistsError as e:
-        #     print(e)
+        return redirect(url_for('home.view_tests'))
 
     return render_template('home/test_config.html', dashboard_form=form, dashboard_test=dashboard_test, title="Dashboard")
 
@@ -219,6 +209,8 @@ def catalogtest():
         os.system('.\\bin\\obibvt -config {} -compareresults {} {}'.format(config_file_location,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
+
+        return redirect(url_for('home.view_tests'))
 
     return render_template('home/test_config.html', catalog_form=form, catalog_test=catalog_test, title="Catalog")
 
@@ -297,6 +289,8 @@ def uitest():
                                                                            '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
+        return redirect(url_for('home.view_tests'))
+
     return render_template('home/test_config.html', ui_form=form, ui_test=ui_test, title="User Interface")
 
 
@@ -373,6 +367,8 @@ def reporttest():
                                                                            '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
+        return redirect(url_for('home.view_tests'))
+
     return render_template('home/test_config.html', report_form=form, report_test=report_test, title="Report")
 
 
@@ -444,6 +440,8 @@ def lsqltest():
                                                                            '.\\' + 'Results' + '\\' + form.deployment_a.data,
                                                                            '.\\' + 'Results' + '\\' + form.deployment_b.data))
 
+        return redirect(url_for('home.view_tests'))
+    
     return render_template('home/test_config.html', lsql_form=form, lsql_test=lsql_test, title="Logical SQL")
 
 

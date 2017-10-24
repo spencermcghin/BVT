@@ -4,7 +4,6 @@
     <list default="true" id="c626c204-5374-4a13-8d50-148b13f057de" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/home/views.py" afterPath="$PROJECT_DIR$/app/home/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/dashboard.xml" afterPath="$PROJECT_DIR$/xml/dashboard.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/home/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2392">
-              <caret line="219" column="77" lean-forward="false" selection-start-line="219" selection-start-column="77" selection-end-line="219" selection-end-column="77" />
+            <state relative-caret-position="754">
+              <caret line="443" column="4" lean-forward="false" selection-start-line="443" selection-start-column="4" selection-end-line="443" selection-end-column="4" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
@@ -583,8 +582,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/home/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2392">
-          <caret line="219" column="77" lean-forward="false" selection-start-line="219" selection-start-column="77" selection-end-line="219" selection-end-column="77" />
+        <state relative-caret-position="754">
+          <caret line="443" column="4" lean-forward="false" selection-start-line="443" selection-start-column="4" selection-end-line="443" selection-end-column="4" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
